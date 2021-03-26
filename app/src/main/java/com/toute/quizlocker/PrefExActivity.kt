@@ -3,8 +3,11 @@ package com.toute.quizlocker
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceFragment
+//import androidx.fragment.app.FragmentActivity
 import com.toute.quizlocker.databinding.ActivityFileExBinding
 import com.toute.quizlocker.databinding.ActivityPrefExBinding
+import com.toute.quizlocker.databinding.ActivityPrefFragmentBinding
 
 class PrefExActivity : AppCompatActivity() {
     // nameField 의 데이터를 저장할 Key
@@ -17,6 +20,8 @@ class PrefExActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // PrefExActivity
         val binding = ActivityPrefExBinding.inflate(layoutInflater)
         setContentView(binding.root)
 //        setContentView(R.layout.activity_pref_ex)
@@ -37,6 +42,17 @@ class PrefExActivity : AppCompatActivity() {
 
             // SharedPreference 에서 pushCheckBoxKey 키값으로 불린값을 불러와 pushCheckBox 의 체크상태를 설정
             binding.pushCheckBox.isChecked = preference.getBoolean(pushCheckBoxKey, false)
+        }
+        // PrefExActivity
+    }
+
+    // PreferenceFragment: XML 로 작성한 Preference 를 UI 로 보여주는 클래스
+    class MyPrefFragment : PreferenceFragment() {
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+
+            // Preference 정보가 있는 XML 파일 지정
+            addPreferencesFromResource(R.xml.ex_pref)
         }
     }
 }
