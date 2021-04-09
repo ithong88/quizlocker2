@@ -10,6 +10,6 @@
         android:entries="@array/category"
         android:entryValues="@array/category"
         android:key="category"
-        android:summary="일반상식, 역사 수도"
+        android:summary="일반상식, 역사, 수도"
         android:title="퀴즈종류" />
 </PreferenceScreen>
